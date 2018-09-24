@@ -1,0 +1,22 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+}
+
+allprojects {
+  apply plugin: 'java'
+  apply plugin: 'maven'
+
+  group = 'org.jfrog.example.gradle'
+  version = currentVersion
+  status = 'release'
+}
+
+// Setting this property to true will make the artifactoryPublish task
+// skip this module (in our case, the root module):
+artifactoryPublish.skip = true
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '2.4'
+}
